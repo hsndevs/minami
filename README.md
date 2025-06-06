@@ -1,22 +1,23 @@
-=== Minami ===
+# Minami - WordPress Theme (FSE) #
 
 Contributors: hsntareq
 Requires at least: 6.0
 Tested up to: 6.5
 Requires PHP: 5.7
 License: GPLv2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+License URI: <http://www.gnu.org/licenses/gpl-2.0.html>
 
-== Description ==
+## Description ##
 
-A theme for the agency Minami.
+A theme for the agency Minami
 
-== Changelog ==
+## Changelog ##
 
-= 1.0.0 =
-* Initial release
+### 1.0.0 ###
 
-== Copyright ==
+- Initial release
+
+## Copyright ##
 
 Minami WordPress Theme, (C) 2024 hsntareq
 Minami is distributed under the terms of the GNU GPL.
