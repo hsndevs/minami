@@ -27,7 +27,7 @@ class List_With_Circle
 				content: "";
 				width: 16px;
 				height: 16px;
-				background-image: url(' . FOCOTIK_THEME_URI . 'assets/images/svg-icons/circle.svg);
+				background-image: url(' . MINAMI_THEME_URI . 'assets/images/svg-icons/circle.svg);
 				background-size: contain;
 				background-repeat: no-repeat;
 				margin-right: 12px;

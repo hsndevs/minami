@@ -102,6 +102,7 @@ final class Theme_Main
 		Enqueue::get_instance();
 		Tgmpa::get_instance();
 		Meta_Widget::get_instance();
+		Post_Types::get_instance();
 	}
 
 	/**
@@ -111,19 +112,19 @@ final class Theme_Main
 	{
 
 		// It is defined as the plugin directory path without the trailing slash.
-		if (!defined('FOCOTIK_THEME_PATH')) {
+		if (!defined('MINAMI_THEME_PATH')) {
 			// path from the theme root.
-			define('FOCOTIK_THEME_PATH', trailingslashit(get_template_directory()));
+			define('MINAMI_THEME_PATH', trailingslashit(get_template_directory()));
 		}
 
 		// MINAMI_ASSETS_URI is the URL for the assets directory of the Learn Plugin.
 		if (!defined('MINAMI_ASSETS_URI')) {
-			define('MINAMI_ASSETS_URI', FOCOTIK_THEME_PATH . 'assets');
+			define('MINAMI_ASSETS_URI', MINAMI_THEME_PATH . 'assets');
 		}
 
-		// FOCOTIK_THEME_URI is defined as the URL for the plugin directory.
-		if (!defined('FOCOTIK_THEME_URI')) {
-			define('FOCOTIK_THEME_URI', trailingslashit(get_template_directory_uri()));
+		// MINAMI_THEME_URI is defined as the URL for the plugin directory.
+		if (!defined('MINAMI_THEME_URI')) {
+			define('MINAMI_THEME_URI', trailingslashit(get_template_directory_uri()));
 		}
 	}
 }

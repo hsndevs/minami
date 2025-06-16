@@ -30,7 +30,7 @@ class List_With_Bullet
 				content: "";
 				width: 24px;
 				height: 24px;
-				background-image: url(' . FOCOTIK_THEME_URI . 'assets/images/svg-icons/bullet.svg);
+				background-image: url(' . MINAMI_THEME_URI . 'assets/images/svg-icons/bullet.svg);
 				background-size: contain;
 				background-repeat: no-repeat;
 				margin-right: 12px;

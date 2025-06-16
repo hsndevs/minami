@@ -27,7 +27,7 @@ class List_With_Right_Arrow
 				content: "";
 				width: 24px;
 				height: 24px;
-				background-image: url(' . FOCOTIK_THEME_URI . 'assets/images/svg-icons/right-arrow-angle.svg);
+				background-image: url(' . MINAMI_THEME_URI . 'assets/images/svg-icons/right-arrow-angle.svg);
 				background-size: contain;
 				background-repeat: no-repeat;
 				margin-right: 12px;

@@ -9,6 +9,7 @@
 
 namespace Minami\Blocks;
 
+use Minami\Blocks\Variations\Btn_Minami_Type;
 use Minami\Blocks\Variations\Btn_Orange_Color;
 use Minami\Blocks\Variations\Btn_White_Color;
 use Minami\Blocks\Variations\Case_Study_Query_Loop;
@@ -54,14 +55,11 @@ class Variations
 	public function minami_register_block_styles()
 	{
 		// Register block variations.
-		Btn_Orange_Color::get_instance();
-		Btn_White_Color::get_instance();
-		Case_Study_Query_Loop::get_instance();
-		Grid_Gradient::get_instance();
-		Grid_Card::get_instance();
-		List_With_Bullet::get_instance();
-		List_With_Gradient_Bullet::get_instance();
-		List_With_Circle::get_instance();
-		List_With_Right_Arrow::get_instance();
+		Btn_Minami_Type::get_instance();
+
+		// List_With_Bullet::get_instance();
+		// List_With_Gradient_Bullet::get_instance();
+		// List_With_Circle::get_instance();
+		// List_With_Right_Arrow::get_instance();
 	}
 }

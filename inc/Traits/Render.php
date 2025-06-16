@@ -13,7 +13,7 @@ trait Render {
 	 *
 	 * @var string
 	 */
-	private static $view_path = FOCOTIK_THEME_PATH . '/views/';
+	private static $view_path = MINAMI_THEME_PATH . '/views/';
 
 	/**
 	 * Render the template.

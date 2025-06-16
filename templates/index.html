@@ -1,21 +1,75 @@
-<!-- wp:template-part {"slug":"header","theme":"minami","area":"header"} /-->
+<!-- wp:group {"layout":{"type":"default"}} -->
+<div class="wp-block-group"><!-- wp:template-part {"slug":"header","theme":"minami","area":"header"} /-->
 
-<!-- wp:group {"layout":{"type":"constrained","contentSize":"1280px"}} -->
-<div class="wp-block-group"><!-- wp:query {"queryId":4,"query":{"perPage":10,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":true},"metadata":{"categories":["posts"],"patternName":"core/query-small-posts","name":"Small image and title"},"className":"is-style-default","layout":{"type":"default"}} -->
-	<div class="wp-block-query is-style-default"><!-- wp:post-template {"layout":{"type":"default"}} -->
-	<!-- wp:group {"style":{"spacing":{"margin":{"bottom":"0"},"padding":{"bottom":"var:preset|spacing|40","top":"var:preset|spacing|40"}}},"layout":{"type":"flex","flexWrap":"nowrap","verticalAlignment":"center"}} -->
-	<div class="wp-block-group" style="margin-bottom:0;padding-top:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--40)"><!-- wp:group {"style":{"layout":{"selfStretch":"fit","flexSize":null}},"layout":{"type":"default"}} -->
-	<div class="wp-block-group"><!-- wp:post-featured-image {"isLink":true,"aspectRatio":"4/3","width":"300px","style":{"layout":{"selfStretch":"fixed","flexSize":"300px"}}} /--></div>
-	<!-- /wp:group -->
+<!-- wp:group {"style":{"spacing":{"margin":{"top":"0","bottom":"0"}},"background":{"backgroundImage":{"url":"http://dminami.local/wp-content/uploads/2025/06/namba-square.jpg","id":119,"source":"file","title":"namba-square"},"backgroundSize":"cover","backgroundAttachment":"scroll","backgroundPosition":"50% 50%"},"dimensions":{"minHeight":"600px"}},"layout":{"type":"default"}} -->
+<div class="wp-block-group" style="min-height:600px;margin-top:0;margin-bottom:0"></div>
+<!-- /wp:group --></div>
+<!-- /wp:group -->
 
-	<!-- wp:group {"style":{"layout":{"selfStretch":"fill","flexSize":null}},"layout":{"type":"flex","orientation":"vertical","flexWrap":"wrap"}} -->
-	<div class="wp-block-group"><!-- wp:post-title {"isLink":true,"style":{"layout":{"selfStretch":"fill","flexSize":null}}} /-->
+<!-- wp:group {"style":{"spacing":{"margin":{"top":"0","bottom":"0"}}},"layout":{"type":"default"}} -->
+<div class="wp-block-group" style="margin-top:0;margin-bottom:0"><!-- wp:group {"style":{"background":{"backgroundImage":{"url":"http://dminami.local/wp-content/uploads/2025/06/events-background.webp","id":304,"source":"file","title":"events-background"},"backgroundSize":"674px","backgroundPosition":"0% 100%","backgroundAttachment":"scroll","backgroundRepeat":"no-repeat"},"spacing":{"padding":{"top":"var:preset|spacing|60","bottom":"var:preset|spacing|60"}}},"backgroundColor":"primary","layout":{"type":"constrained","contentSize":"1352px"}} -->
+<div class="wp-block-group has-primary-background-color has-background" style="padding-top:var(--wp--preset--spacing--60);padding-bottom:var(--wp--preset--spacing--60)"><!-- wp:create-block/event-tabs /--></div>
+<!-- /wp:group --></div>
+<!-- /wp:group -->
 
-	<!-- wp:post-excerpt {"excerptLength":100} /--></div>
-	<!-- /wp:group --></div>
-	<!-- /wp:group -->
-	<!-- /wp:post-template --></div>
-	<!-- /wp:query --></div>
-	<!-- /wp:group -->
+<!-- wp:group {"style":{"spacing":{"margin":{"top":"0","bottom":"0"},"padding":{"top":"var:preset|spacing|70","bottom":"var:preset|spacing|70","left":"0","right":"0"}},"background":{"backgroundImage":{"url":"http://dminami.local/wp-content/uploads/2025/06/image-6.webp","id":213,"source":"file","title":"image"},"backgroundSize":"500px","backgroundAttachment":"scroll","backgroundPosition":"60% 40%","backgroundRepeat":"no-repeat"}},"layout":{"type":"constrained","contentSize":"1352px"}} -->
+<div class="wp-block-group" style="margin-top:0;margin-bottom:0;padding-top:var(--wp--preset--spacing--70);padding-right:0;padding-bottom:var(--wp--preset--spacing--70);padding-left:0"><!-- wp:heading {"textAlign":"center","fontSize":"3x-large"} -->
+<h2 class="wp-block-heading has-text-align-center has-3-x-large-font-size">Association Activities</h2>
+<!-- /wp:heading -->
 
-	<!-- wp:template-part {"slug":"footer","theme":"minami","area":"footer"} /-->
+<!-- wp:query {"queryId":4,"query":{"perPage":4,"pages":0,"offset":0,"postType":"activity","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false,"parents":[],"format":[]},"metadata":{"categories":["posts"],"patternName":"core/query-small-posts","name":"Small image and title"},"className":"is-style-default","layout":{"type":"default"}} -->
+<div class="wp-block-query is-style-default"><!-- wp:post-template {"style":{"spacing":{"blockGap":"0"}},"layout":{"type":"default"}} -->
+<!-- wp:group {"className":"min-post-list-item","style":{"spacing":{"margin":{"bottom":"0"},"padding":{"bottom":"var:preset|spacing|30","top":"var:preset|spacing|30"}}},"layout":{"type":"flex","flexWrap":"nowrap","verticalAlignment":"center"}} -->
+<div class="wp-block-group min-post-list-item" style="margin-bottom:0;padding-top:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--30)"><!-- wp:group {"className":"min-post-item-thumb","style":{"layout":{"selfStretch":"fit","flexSize":null}},"layout":{"type":"default"}} -->
+<div class="wp-block-group min-post-item-thumb"><!-- wp:post-featured-image {"isLink":true,"aspectRatio":"3/2","width":"370px","style":{"layout":{"selfStretch":"fixed","flexSize":"300px"}}} /--></div>
+<!-- /wp:group -->
+
+<!-- wp:group {"style":{"layout":{"selfStretch":"fill","flexSize":null},"spacing":{"blockGap":"10px"}},"layout":{"type":"flex","orientation":"vertical","flexWrap":"wrap"}} -->
+<div class="wp-block-group"><!-- wp:post-date {"format":"n/j/Y","fontSize":"small"} /-->
+
+<!-- wp:post-title {"level":3,"isLink":true,"style":{"layout":{"selfStretch":"fill","flexSize":null}},"fontSize":"large"} /-->
+
+<!-- wp:post-excerpt {"moreText":"\u003cstrong\u003eRead more...\u003c/strong\u003e","excerptLength":50,"fontSize":"small"} /--></div>
+<!-- /wp:group --></div>
+<!-- /wp:group -->
+<!-- /wp:post-template --></div>
+<!-- /wp:query -->
+
+<!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"}} -->
+<div class="wp-block-buttons"><!-- wp:button {"className":"is-style-btn-default"} -->
+<div class="wp-block-button is-style-btn-default"><a class="wp-block-button__link wp-element-button">See More...</a></div>
+<!-- /wp:button --></div>
+<!-- /wp:buttons --></div>
+<!-- /wp:group -->
+
+<!-- wp:group {"style":{"spacing":{"margin":{"top":"0","bottom":"0"},"padding":{"top":"20px","bottom":"20px"}}},"backgroundColor":"black","layout":{"type":"default"}} -->
+<div class="wp-block-group has-black-background-color has-background" style="margin-top:0;margin-bottom:0;padding-top:20px;padding-bottom:20px"><!-- wp:group {"layout":{"type":"constrained","contentSize":"1352px"}} -->
+<div class="wp-block-group"><!-- wp:gallery {"columns":6,"linkTo":"none","style":{"spacing":{"blockGap":{"left":"var:preset|spacing|60"}}}} -->
+<figure class="wp-block-gallery has-nested-images columns-6 is-cropped"><!-- wp:image {"id":47,"sizeSlug":"large","linkDestination":"attachment"} -->
+<figure class="wp-block-image size-large"><a href="http://dminami.local/gallery4/" target="_blank" rel=" noreferrer noopener"><img src="http://dminami.local/wp-content/uploads/2025/06/gallery4.webp" alt="" class="wp-image-47"/></a></figure>
+<!-- /wp:image -->
+
+<!-- wp:image {"id":46,"sizeSlug":"large","linkDestination":"none"} -->
+<figure class="wp-block-image size-large"><img src="http://dminami.local/wp-content/uploads/2025/06/gallery3.webp" alt="" class="wp-image-46"/></figure>
+<!-- /wp:image -->
+
+<!-- wp:image {"id":45,"sizeSlug":"large","linkDestination":"none"} -->
+<figure class="wp-block-image size-large"><img src="http://dminami.local/wp-content/uploads/2025/06/gallery2.webp" alt="" class="wp-image-45"/></figure>
+<!-- /wp:image -->
+
+<!-- wp:image {"id":44,"sizeSlug":"large","linkDestination":"none"} -->
+<figure class="wp-block-image size-large"><img src="http://dminami.local/wp-content/uploads/2025/06/gallery1.webp" alt="" class="wp-image-44"/></figure>
+<!-- /wp:image -->
+
+<!-- wp:image {"id":119,"sizeSlug":"large","linkDestination":"none"} -->
+<figure class="wp-block-image size-large"><img src="http://dminami.local/wp-content/uploads/2025/06/namba-square.jpg" alt="" class="wp-image-119"/></figure>
+<!-- /wp:image -->
+
+<!-- wp:image {"id":163,"sizeSlug":"large","linkDestination":"none"} -->
+<figure class="wp-block-image size-large"><img src="http://dminami.local/wp-content/uploads/2025/06/ec10ad64-ac64-3086-b8ff-619f23b2aa1e-1024x683.jpg" alt="" class="wp-image-163"/></figure>
+<!-- /wp:image --></figure>
+<!-- /wp:gallery --></div>
+<!-- /wp:group --></div>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"footer","theme":"minami","area":"footer"} /-->
