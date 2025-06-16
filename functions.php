@@ -112,7 +112,7 @@ add_action('rest_api_init', function () {
 });
 
 function create_pages_if_not_exist() {
-	$pages = ['Home', 'About', 'Services', 'Clients', 'Works', 'Contact', 'Product Redesign', 'MVP', 'Team Extention', 'Case Study', 'Blog'];
+	$pages = ['Home', 'About Us', 'Services', 'Address', 'Member List', 'Minamimachi-News', 'Minami Town Story', 'Minami Town Story Cinema History', 'Minami Walking Report', 'Minami Survey Report', 'Activity Report', 'Past Activities'];
 	foreach ($pages as $slug) {
 		$existing_page = get_page_by_path(strtolower($slug));
 		if (!$existing_page) {
@@ -124,6 +124,7 @@ function create_pages_if_not_exist() {
 		}
 	}
 }
-// add_action('after_switch_theme', 'create_pages_if_not_exist');
+
+add_action('after_switch_theme', 'create_pages_if_not_exist');
 
 

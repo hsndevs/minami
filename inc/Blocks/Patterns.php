@@ -47,7 +47,7 @@ class Patterns {
 
 <!-- wp:group {"style":{"spacing":{"margin":{"top":"0","bottom":"0"}}},"layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"center"}} -->
 <div class="wp-block-group" style="margin-top:0;margin-bottom:0"><!-- wp:media-text {"mediaId":315,"mediaLink":"http://dminami.local/home-2/","mediaType":"image","mediaWidth":19,"verticalAlignment":"center","className":"min-image-text-sm","style":{"layout":{"selfStretch":"fit","flexSize":null}},"fontSize":"extra-small"} -->
-<div class="wp-block-media-text is-stacked-on-mobile is-vertically-aligned-center min-image-text-sm has-extra-small-font-size" style="grid-template-columns:19% auto"><figure class="wp-block-media-text__media"><img src="' . esc_url(get_template_directory_uri() . '/assets/images/home.png') . '" alt="" class="wp-image-315 size-full"/></figure><div class="wp-block-media-text__content"><!-- wp:paragraph {"placeholder":"Content…"} -->
+<div class="wp-block-media-text is-stacked-on-mobile is-vertically-aligned-center min-image-text-sm has-extra-small-font-size" style="grid-template-columns:19% auto"><figure class="wp-block-media-text__media"><img src="' . esc_url(get_template_directory_uri() . '/assets/images/home.webp') . '" alt="" class="wp-image-315 size-full"/></figure><div class="wp-block-media-text__content"><!-- wp:paragraph {"placeholder":"Content…"} -->
 <p><strong><a href="/">Home</a></strong></p>
 <!-- /wp:paragraph --></div></div>
 <!-- /wp:media-text -->
