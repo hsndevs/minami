@@ -46,16 +46,16 @@ class Enqueue
 	 */
 	public function enqueue_frontend_style()
 	{
-		wp_enqueue_style('frontend-style', get_stylesheet_directory_uri() . '/build/frontend.css', array(), '1.0.0', 'all');
+		wp_enqueue_style('frontend-style', get_stylesheet_directory_uri() . '/build/frontend.css', array(), wp_get_theme()->get('Version'), 'all');
 		// enqueue for both frontend and backend
 
-		wp_enqueue_style('google-icon-style', esc_url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined'), array(), '1.0.0', 'all');
+		wp_enqueue_style('google-icon-style', esc_url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined'), array(), wp_get_theme()->get('Version'), 'all');
 
 		wp_enqueue_script(
 			'minami-script',
 			get_stylesheet_directory_uri() . '/build/frontend.js',
 			array(),
-			'1.0.0',
+			wp_get_theme()->get('Version'),
 			true
 		);
 		wp_localize_script('minami-script', 'minami', array('assets_url' => MINAMI_ASSETS_URI));
@@ -68,12 +68,12 @@ class Enqueue
 	 */
 	public function enqueue_admin_style()
 	{
-		wp_enqueue_style('admin-style', get_stylesheet_directory_uri() . '/build/minami-admin.css', array(), '1.0.0', 'all');
+		wp_enqueue_style('admin-style', get_stylesheet_directory_uri() . '/build/minami-admin.css', array(), wp_get_theme()->get('Version'), 'all');
 		wp_enqueue_script(
 			'minami-admin-script',
 			get_stylesheet_directory_uri() . '/build/minami-admin.js',
 			array(),
-			'1.0.0',
+			wp_get_theme()->get('Version'),
 			true
 		);
 		wp_localize_script('minami-admin-script', 'minami', array('assets_url' => MINAMI_ASSETS_URI));
