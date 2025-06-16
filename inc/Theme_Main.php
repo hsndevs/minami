@@ -10,6 +10,8 @@
 
 namespace Minami;
 
+use Minami\Blocks\Patterns;
+
 if (!defined('ABSPATH')) {
 	exit;
 }
@@ -103,6 +105,7 @@ final class Theme_Main
 		Tgmpa::get_instance();
 		Meta_Widget::get_instance();
 		Post_Types::get_instance();
+		Patterns::get_instance();
 	}
 
 	/**

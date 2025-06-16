@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Functions and definitions of the theme.
  *
@@ -22,20 +23,19 @@ define('MINAMI_PLACEHOLDER_IMAGE', 'https://placehold.co/600x400/ddd/999/svg?tex
 add_filter('post_thumbnail_html', 'minami_filter_activity_thumbnail_html', 10, 5);
 
 function minami_filter_activity_thumbnail_html($html, $post_id, $post_thumbnail_id, $size, $attr) {
-    // Check if the current post is of type 'activity'
-    if (get_post_type($post_id) === 'activity' && empty($html)) {
-        $placeholder = '<img src="' . MINAMI_PLACEHOLDER_IMAGE . '"';
-        $placeholder .= ' alt="' . esc_attr(get_the_title($post_id)) . '"';
-        $placeholder .= ' class="wp-post-image" />';
-        return $placeholder;
-    }
+	// Check if the current post is of type 'activity'
+	if (get_post_type($post_id) === 'activity' && empty($html)) {
+		$placeholder = '<img src="' . MINAMI_PLACEHOLDER_IMAGE . '"';
+		$placeholder .= ' alt="' . esc_attr(get_the_title($post_id)) . '"';
+		$placeholder .= ' class="wp-post-image" />';
+		return $placeholder;
+	}
 
-    return $html;
+	return $html;
 }
 
 // This function will add fallback post thumbnail here for each post
-function minami_post_thumbnail($post = null)
-{
+function minami_post_thumbnail($post = null) {
 	if (!$post) {
 		global $post;
 	}
@@ -64,8 +64,7 @@ function minami_post_thumbnail($post = null)
  * @param mixed $data Data to print
  * @param bool $die Whether to die after printing
  */
-function pr($data, $die = false)
-{
+function pr($data, $die = false) {
 	echo '<pre>';
 	print_r($data);
 	echo '</pre>';
@@ -74,11 +73,10 @@ function pr($data, $die = false)
 	}
 }
 
-function wpdocs_register_multiple_blocks()
-{
+function wpdocs_register_multiple_blocks() {
 	$build_dir = __DIR__ . '/build/blocks';
 
-	if(!is_dir($build_dir)) {
+	if (!is_dir($build_dir)) {
 		return; // Exit if the build directory does not exist
 	}
 	foreach (scandir($build_dir) as $result) {
@@ -100,21 +98,20 @@ add_action('init', 'wpdocs_register_multiple_blocks');
 
 // Add featured_media_url to event REST API response
 add_action('rest_api_init', function () {
-    register_rest_field('event', 'featured_media_url', [
-        'get_callback' => function ($post_arr) {
-            $img_id = $post_arr['featured_media'];
-            if ($img_id) {
-                $img = wp_get_attachment_image_src($img_id, 'medium');
-                return $img ? $img[0] : '';
-            }
-            return '';
-        },
-        'schema' => null,
-    ]);
+	register_rest_field('event', 'featured_media_url', [
+		'get_callback' => function ($post_arr) {
+			$img_id = $post_arr['featured_media'];
+			if ($img_id) {
+				$img = wp_get_attachment_image_src($img_id, 'medium');
+				return $img ? $img[0] : '';
+			}
+			return '';
+		},
+		'schema' => null,
+	]);
 });
 
-function create_pages_if_not_exist()
-{
+function create_pages_if_not_exist() {
 	$pages = ['Home', 'About', 'Services', 'Clients', 'Works', 'Contact', 'Product Redesign', 'MVP', 'Team Extention', 'Case Study', 'Blog'];
 	foreach ($pages as $slug) {
 		$existing_page = get_page_by_path(strtolower($slug));
@@ -128,3 +125,5 @@ function create_pages_if_not_exist()
 	}
 }
 // add_action('after_switch_theme', 'create_pages_if_not_exist');
+
+
