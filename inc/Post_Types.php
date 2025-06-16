@@ -116,6 +116,29 @@ class Post_Types {
 			'show_in_rest' => true, // Enable Gutenberg editor support
 		));
 
+
+		register_post_type('report', array(
+			'labels' => array(
+				'name' => __('Walking Reports', 'minami'),
+				'singular_name' => __('Walking Report', 'minami'),
+				'menu_name' => __('Walking Reports', 'minami'),
+				'all_items' => __('All Walking Reports', 'minami'),
+				'add_new_item' => __('New Walking Report +', 'minami'),
+				'edit_item' => __('Edit Walking Report', 'minami'),
+				'new_item' => __('New Walking Report', 'minami'),
+				'view_item' => __('View Walking Report', 'minami'),
+				'search_items' => __('Search Walking Reports', 'minami'),
+				'not_found' => __('No Walking Reports found', 'minami'),
+				'not_found_in_trash' => __('No Walking Reports found in Trash', 'minami'),
+			),
+			'public' => true,
+			'has_archive' => true, // Enable archive page
+			'supports' => array('title', 'editor', 'thumbnail', 'excerpt'),
+			'menu_icon' => 'dashicons-art',
+			'rewrite' => array('slug' => 'walking-reports'),
+			'show_in_rest' => true, // Enable Gutenberg editor support
+		));
+
 		// You can register more custom post types here.
 	}
 
