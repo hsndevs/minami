@@ -80,7 +80,7 @@ $tab_list = array_merge([
 							$link = get_permalink($event);
 					?>
 						<div class="event-item">
-							<a href="<?php echo esc_url($link); ?>" target="_blank" rel="noopener noreferrer" class="event-thumb-link">
+							<a href="<?php echo esc_url($link); ?>" rel="noopener noreferrer" class="event-thumb-link">
 								<?php if ($thumb_url): ?>
 									<img src="<?php echo esc_url($thumb_url); ?>" alt="<?php echo esc_attr($title); ?>" class="event-thumb" />
 								<?php else: ?>
@@ -88,7 +88,7 @@ $tab_list = array_merge([
 								<?php endif; ?>
 							</a>
 							<h4>
-								<a href="<?php echo esc_url($link); ?>" target="_blank" rel="noopener noreferrer"><?php echo esc_html($title); ?></a>
+								<a href="<?php echo esc_url($link); ?>"  rel="noopener noreferrer"><?php echo esc_html($title); ?></a>
 							</h4>
 							<div class="event-excerpt">
 								<?php echo minami_truncate_excerpt($event, 10); ?>
