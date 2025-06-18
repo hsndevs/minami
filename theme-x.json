@@ -290,11 +290,6 @@
 					"fontWeight": "700",
 					"lineHeight": "1.2"
 				}
-			},
-			"link": {
-				"color": {
-					"text": "var(--wp--preset--color--black)"
-				}
 			}
 		},
 		"spacing": {
