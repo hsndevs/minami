@@ -127,4 +127,9 @@ function create_pages_if_not_exist() {
 
 add_action('init', 'create_pages_if_not_exist');
 
+// Disable theme and plugin editors in WP admin
+if (is_admin()) {
+	define('DISALLOW_FILE_EDIT', true);
+}
+
 
