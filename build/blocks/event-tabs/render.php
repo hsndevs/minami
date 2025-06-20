@@ -13,7 +13,7 @@ $event_categories = get_terms(array(
 ));
 
 // Get latest 3 events for a category (or all if $cat_id is null)
-function minami_get_latest_events_for_category($cat_id = null, $limit = 3) {
+function minami_get_latest_events_for_category($cat_id = null, $limit = -1) {
 	$args = array(
 		'post_type' => 'event',
 		'posts_per_page' => $limit,
@@ -69,59 +69,45 @@ $tab_list = array_merge([
 		<div class="tab-content-wrap">
 			<?php foreach ($tab_list as $idx => $tab): ?>
 				<div class="tab-content" style="<?php echo $idx === 0 ? '' : 'display:none;'; ?>">
-					<?php
-					$events = minami_get_latest_events_for_category($tab['id']);
-					if (empty($events)) {
-						echo '<p>' . esc_html__('No events found for this category.', 'event-tabs') . '</p>';
-					} else {
-						foreach ($events as $event) {
-							$thumb_url = minami_get_event_thumb_url($event->ID);
-							$title = get_the_title($event);
-							$link = get_permalink($event);
-					?>
-						<div class="event-item">
-							<a href="<?php echo esc_url($link); ?>" rel="noopener noreferrer" class="event-thumb-link">
-								<?php if ($thumb_url): ?>
-									<img src="<?php echo esc_url($thumb_url); ?>" alt="<?php echo esc_attr($title); ?>" class="event-thumb" />
-								<?php else: ?>
-									<img src="https://placehold.co/400x300?text=No+Image" alt="No image" class="event-thumb" />
-								<?php endif; ?>
-							</a>
-							<h4>
-								<a href="<?php echo esc_url($link); ?>"  rel="noopener noreferrer"><?php echo esc_html($title); ?></a>
-							</h4>
-							<div class="event-excerpt">
-								<?php echo minami_truncate_excerpt($event, 10); ?>
-							</div>
+					<div class="swiper">
+						<div class="swiper-wrapper">
+							<?php
+							$events = minami_get_latest_events_for_category($tab['id']);
+							if (empty($events)) {
+								echo '<div class="swiper-slide"><p>' . esc_html__('No events found for this category.', 'event-tabs') . '</p></div>';
+							} else {
+								foreach ($events as $event) {
+									$thumb_url = minami_get_event_thumb_url($event->ID);
+									$title = get_the_title($event);
+									$link = get_permalink($event);
+							?>
+									<div class="swiper-slide event-item">
+										<a href="<?php echo esc_url($link); ?>" rel="noopener noreferrer" class="event-thumb-link">
+											<?php if ($thumb_url): ?>
+												<img src="<?php echo esc_url($thumb_url); ?>" alt="<?php echo esc_attr($title); ?>" class="event-thumb" />
+											<?php else: ?>
+												<img src="https://placehold.co/400x300?text=No+Image" alt="No image" class="event-thumb" />
+											<?php endif; ?>
+										</a>
+										<h4>
+											<a href="<?php echo esc_url($link); ?>" rel="noopener noreferrer"><?php echo esc_html($title); ?></a>
+										</h4>
+										<div class="event-excerpt">
+											<?php echo minami_truncate_excerpt($event, 10); ?>
+										</div>
+									</div>
+							<?php
+								}
+							}
+							?>
 						</div>
-					<?php
-						}
-					}
-					?>
+						<!-- Swiper controls -->
+						<div class="swiper-pagination"></div>
+						<div class="swiper-button-prev"></div>
+						<div class="swiper-button-next"></div>
+					</div>
 				</div>
 			<?php endforeach; ?>
 		</div>
 	</div>
 </div>
-<script>
-	// Simple tab switcher for frontend (no jQuery)
-	document.addEventListener('DOMContentLoaded', function() {
-		var tabBlocks = document.querySelectorAll('.event-tabs');
-		tabBlocks.forEach(function(tabBlock) {
-			var tabs = tabBlock.querySelectorAll('.tabs .tab');
-			var contents = tabBlock.querySelectorAll('.tab-content');
-			tabs.forEach(function(tab, idx) {
-				tab.addEventListener('click', function() {
-					tabs.forEach(function(t) {
-						t.classList.remove('active');
-					});
-					contents.forEach(function(c) {
-						c.style.display = 'none';
-					});
-					tab.classList.add('active');
-					contents[idx].style.display = '';
-				});
-			});
-		});
-	});
-</script>

@@ -6,14 +6,21 @@
   "title": "Banner Slider",
   "category": "widgets",
   "icon": "smiley",
-  "description": "Example block scaffolded with Create Block tool.",
+  "description": "A banner slider block that uses Swiper.js.",
   "example": {},
   "supports": {
     "html": false
+  },
+  "attributes": {
+    "images": {
+      "type": "array",
+      "default": []
+    }
   },
   "textdomain": "banner-slider",
   "editorScript": "file:./index.js",
   "editorStyle": "file:./index.css",
   "style": "file:./style-index.css",
-  "viewScript": "file:./view.js"
+  "viewScript": "file:./view.js",
+  "render": "file:./render.php"
 }
