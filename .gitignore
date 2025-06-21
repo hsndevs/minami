@@ -1,0 +1,11 @@
+node_modules
+.DS_Store
+*.lock
+*.log
+*.zip
+bundle*.js
+build
+*-lock.json
+vendor
+/minami
+*x.json
