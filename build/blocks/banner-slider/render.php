@@ -6,11 +6,12 @@ if (empty($images)) {
 }
 
 $unique_id = uniqid('swiper-');
+$slider_height = isset($attributes['sliderHeight']) ? intval($attributes['sliderHeight']) : 500;
 ?>
 
 <div <?php echo get_block_wrapper_attributes(); ?>>
-	<div class="banner-slider-editor-preview">
-		<div class="swiper" data-swiper-id="<?php echo esc_attr($unique_id); ?>">
+	<div class="banner-slider-editor-preview" style="height:<?php echo esc_attr($slider_height); ?>px">
+		<div class="swiper" data-swiper-id="<?php echo esc_attr($unique_id); ?>" data-slider-height="<?php echo esc_attr($slider_height); ?>">
 			<div class="swiper-wrapper">
 				<?php foreach ($images as $image) : ?>
 					<div class="swiper-slide">

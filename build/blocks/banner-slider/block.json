@@ -21,6 +21,10 @@
     "images": {
       "type": "array",
       "default": []
+    },
+    "sliderHeight": {
+      "type": "number",
+      "default": 500
     }
   }
 }
