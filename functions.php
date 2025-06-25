@@ -254,3 +254,43 @@ function minami_enqueue_gallery_slider_extension() {
 	);
 }
 add_action( 'enqueue_block_editor_assets', 'minami_enqueue_gallery_slider_extension' );
+
+
+
+// Get latest 3 events for a category (or all if $cat_id is null)
+function minami_get_latest_events_for_category( $cat_id = null, $limit = -1 ) {
+	$args = array(
+		'post_type' => 'event',
+		'posts_per_page' => $limit,
+		'orderby' => 'date',
+		'order' => 'DESC',
+	);
+	if ( $cat_id ) {
+		$args['tax_query'] = array(
+			array(
+				'taxonomy' => 'event_category',
+				'field' => 'term_id',
+				'terms' => $cat_id,
+			),
+		);
+	}
+	return get_posts( $args );
+}
+
+// Helper: Get event excerpt (max 10 words)
+function minami_truncate_excerpt( $post, $word_limit = 10 ) {
+	$excerpt = get_the_excerpt( $post );
+	$words = preg_split( '/\s+/', wp_strip_all_tags( $excerpt ), -1, PREG_SPLIT_NO_EMPTY );
+	$truncated = array_slice( $words, 0, $word_limit );
+	return esc_html( implode( ' ', $truncated ) . ( count( $words ) > $word_limit ? '...' : '' ) );
+}
+
+// Helper: Get event thumbnail URL
+function minami_get_event_thumb_url( $post_id ) {
+	$thumb_id = get_post_thumbnail_id( $post_id );
+	if ( $thumb_id ) {
+		$img = wp_get_attachment_image_src( $thumb_id, 'medium' );
+		return $img ? $img[0] : '';
+	}
+	return '';
+}
