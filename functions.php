@@ -236,7 +236,7 @@ function minami_enqueue_gallery_slider_extension() {
 		'minami-gallery-slider-extension',
 		get_theme_file_uri( '/build/gallery-slider-extension.js' ),
 		array( 'wp-blocks', 'wp-element', 'wp-components', 'wp-compose', 'wp-editor', 'wp-block-editor' ),
-		filemtime( get_theme_file_path( '/build/gallery-slider-extension.js' ) ),
+		get_theme_file_path( '/build/gallery-slider-extension.js' ),
 		true // Load in footer.
 	);
 	// Set as module for ES6 imports.

@@ -42,12 +42,12 @@
 <!-- /wp:group -->
 <!-- /wp:post-template -->
 
-<!-- wp:query-pagination {"layout":{"type":"flex","justifyContent":"right"}} -->
-<!-- wp:query-pagination-previous {"label":"Prev"} /-->
-
-<!-- wp:query-pagination-numbers /-->
-
-<!-- wp:query-pagination-next {"label":"Next"} /-->
+<!-- wp:query-pagination {"layout":{"type":"flex","justifyContent":"center"},"className":"min-pagination"} -->
+<div class="wp-block-query-pagination min-pagination" style="display:flex;justify-content:center;gap:8px;margin-top:2em;">
+	<!-- wp:query-pagination-previous {"label":"Prev","className":"min-pagination-prev"} /-->
+	<!-- wp:query-pagination-numbers {"className":"min-pagination-numbers"} /-->
+	<!-- wp:query-pagination-next {"label":"Next","className":"min-pagination-next"} /-->
+</div>
 <!-- /wp:query-pagination --></div>
 <!-- /wp:query --></div>
 <!-- /wp:group -->

@@ -22,7 +22,7 @@
 			]
 		},
 		"layout": {
-			"contentSize": "620px",
+			"contentSize": "1170px",
 			"wideSize": "1352px"
 		},
 		"spacing": {
@@ -207,7 +207,16 @@
 				}
 			]
 		},
-		"useRootPaddingAwareAlignments": true
+		"useRootPaddingAwareAlignments": true,
+		"shadow": {
+			"presets": [
+				{
+					"name": "Minami Drop Shadow",
+					"slug": "minami-drop-shadow",
+					"shadow": "0px 1px 1px rgba(48, 54, 81, 0.06), inset 0px 1px 4px 1px rgba(48, 54, 81, 0.06)"
+				}
+			]
+		}
 	},
 	"styles": {
 		"blocks": {

@@ -46,7 +46,7 @@ class Patterns {
 				'title'   => __( 'Minami Page Header', 'minami' ),
 				'content' => '<!-- wp:group {"metadata":{"patternName":"minami/minami-page-header","name":"Minami Page Header"},"style":{"spacing":{"margin":{"top":"0","bottom":"0"},"padding":{"top":"var:preset|spacing|80","bottom":"var:preset|spacing|80"}}},"backgroundColor":"primary","layout":{"type":"default"}} -->
 <div class="wp-block-group has-primary-background-color has-background" style="margin-top:0;margin-bottom:0;padding-top:var(--wp--preset--spacing--80);padding-bottom:var(--wp--preset--spacing--80)"><!-- wp:group {"layout":{"type":"constrained"}} -->
-<div class="wp-block-group"><!-- wp:minami/breadcrumb {"customTitle":"Past Activities"} /--></div>
+<div class="wp-block-group"><!-- wp:minami/breadcrumb /--></div>
 <!-- /wp:group --></div>
 <!-- /wp:group -->',
 			)
