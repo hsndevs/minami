@@ -1,0 +1,74 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "minami/history",
+  "version": "0.1.0",
+  "title": "Minami History",
+  "category": "widgets",
+  "icon": "smiley",
+  "description": "Example block scaffolded with Create Block tool.",
+  "example": {},
+  "supports": {
+    "html": false
+  },
+  "textdomain": "minami-history",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "viewScript": "file:./view.js",
+  "attributes": {
+    "heading": {
+      "type": "string",
+      "default": ""
+    },
+    "items": {
+      "type": "array",
+      "default": [],
+      "items": {
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": "string",
+            "default": ""
+          },
+          "event": {
+            "type": "string",
+            "default": ""
+          },
+          "swap": {
+            "type": "boolean",
+            "default": false
+          }
+        }
+      }
+    },
+    "headingBg": {
+      "type": "string",
+      "default": ""
+    },
+    "headingColor": {
+      "type": "string",
+      "default": ""
+    },
+    "headingBorder": {
+      "type": "string",
+      "default": ""
+    },
+    "headingPadding": {
+      "type": "string",
+      "default": ""
+    },
+    "headingAlign": {
+      "type": "string",
+      "default": "left"
+    },
+    "headingPosition": {
+      "type": "string",
+      "default": "left"
+    },
+    "headingRadius": {
+      "type": "string",
+      "default": ""
+    }
+  }
+}
