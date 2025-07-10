@@ -5,9 +5,9 @@ node_modules
 *.zip
 bundle*.js
 build
-!build/blocks -f
+!build/blocks
 *-lock.json
 vendor
 /minami/
-!/build/blocks/* -f
+!/build/blocks/*
 *x.json
