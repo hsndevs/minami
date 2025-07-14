@@ -5,62 +5,22 @@
 ?>
 <?php
 // Minami Breadcrumb Block Render
-function minami_breadcrumb_get_items() {
-	$items = array();
-	$home_url = home_url( '/' );
-	$items[] = array(
-		'url' => $home_url,
-		'label' => '<img src="' . esc_url( get_template_directory_uri() . '/assets/images/home.webp' ) . '" alt="Home" style="height:1em;width:auto;vertical-align:middle;margin-right:0.3em;" />' . esc_html__( 'Home', 'minami' ),
-	);
-
-	if ( is_singular() ) {
-		$post = get_post();
-		$post_type = get_post_type_object( $post->post_type );
-		if ( 'page' !== $post->post_type ) {
-			$archive_link = get_post_type_archive_link( $post->post_type );
-			if ( $archive_link ) {
-				$items[] = array(
-					'url' => $archive_link,
-					'label' => $post_type->labels->singular_name,
-				);
-			}
-		}
-		$items[] = array(
-			'url' => get_permalink( $post ),
-			'label' => get_the_title( $post ),
-		);
-	} elseif ( is_post_type_archive() ) {
-		$post_type = get_post_type_object( get_post_type() );
-		$items[] = array(
-			'url' => '',
-			'label' => $post_type->labels->singular_name,
-		);
-	} elseif ( is_home() || is_front_page() ) {
-		// Only Home
-	} elseif ( is_category() || is_tag() || is_tax() ) {
-		$term = get_queried_object();
-		$taxonomy = get_taxonomy( $term->taxonomy );
-		$items[] = array(
-			'url' => get_term_link( $term ),
-			'label' => $term->name,
-		);
-	} elseif ( is_search() ) {
-		$items[] = array(
-			'url' => '',
-			'label' => sprintf( __( 'Search results for "%s"', 'minami' ), get_search_query() ),
-		);
-	} elseif ( is_404() ) {
-		$items[] = array(
-			'url' => '',
-			'label' => __( '404 Not Found', 'minami' ),
-		);
-	}
-	return $items;
-}
 
 $custom_title = isset( $attributes['customTitle'] ) && $attributes['customTitle'] ? $attributes['customTitle'] : '';
 
-$items = minami_breadcrumb_get_items();
+$home_title = isset( $attributes['homeTitle'] ) && $attributes['homeTitle'] ? $attributes['homeTitle'] : esc_html__( 'Home', 'minami' );
+if ( function_exists( 'minami_breadcrumb_get_items' ) ) {
+	$items = minami_breadcrumb_get_items( $home_title );
+} else {
+	// Fallback: minimal breadcrumb with just Home
+	$items = array(
+		array(
+			'url' => home_url( '/' ),
+			'label' => '<img src="' . esc_url( get_template_directory_uri() . '/assets/images/home.webp' ) . '" alt="Home" style="height:1em;width:auto;vertical-align:middle;margin-right:0.3em;" />' . esc_html( $home_title ),
+		),
+	);
+}
+
 if ( empty( $items ) ) {
 	return;
 }

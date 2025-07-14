@@ -1,21 +1,9 @@
 <!-- wp:group {"layout":{"type":"default"}} -->
 <div class="wp-block-group"><!-- wp:template-part {"slug":"header","theme":"minami","area":"header"} /-->
 
-<!-- wp:group {"style":{"spacing":{"margin":{"top":"0","bottom":"0"},"padding":{"top":"var:preset|spacing|80","bottom":"var:preset|spacing|80"}}},"backgroundColor":"primary","layout":{"type":"default"}} -->
-<div class="wp-block-group has-primary-background-color has-background" style="margin-top:0;margin-bottom:0;padding-top:var(--wp--preset--spacing--80);padding-bottom:var(--wp--preset--spacing--80)"><!-- wp:heading {"textAlign":"center"} -->
-<h2 class="wp-block-heading has-text-align-center">Past Activities</h2>
-<!-- /wp:heading -->
-
-<!-- wp:group {"style":{"spacing":{"margin":{"top":"0","bottom":"0"}}},"layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"center"}} -->
-<div class="wp-block-group" style="margin-top:0;margin-bottom:0"><!-- wp:media-text {"mediaId":315,"mediaLink":"http://dminami.local/home-2/","mediaType":"image","mediaWidth":19,"verticalAlignment":"center","className":"min-image-text-sm","style":{"layout":{"selfStretch":"fit","flexSize":null}},"fontSize":"extra-small"} -->
-<div class="wp-block-media-text is-stacked-on-mobile is-vertically-aligned-center min-image-text-sm has-extra-small-font-size" style="grid-template-columns:19% auto"><figure class="wp-block-media-text__media"><img src="http://dminami.local/wp-content/uploads/2025/06/home.webp" alt="" class="wp-image-315 size-full"/></figure><div class="wp-block-media-text__content"><!-- wp:paragraph {"placeholder":"Content…"} -->
-<p><strong><a href="/">Home</a></strong></p>
-<!-- /wp:paragraph --></div></div>
-<!-- /wp:media-text -->
-
-<!-- wp:paragraph {"fontSize":"extra-small"} -->
-<p class="has-extra-small-font-size">Past Activities</p>
-<!-- /wp:paragraph --></div>
+<!-- wp:group {"metadata":{"patternName":"minami/minami-page-header","name":"Minami Page Header"},"style":{"spacing":{"margin":{"top":"0","bottom":"0"},"padding":{"top":"var:preset|spacing|80","bottom":"var:preset|spacing|80"}}},"backgroundColor":"primary","layout":{"type":"default"}} -->
+<div class="wp-block-group has-primary-background-color has-background" style="margin-top:0;margin-bottom:0;padding-top:var(--wp--preset--spacing--80);padding-bottom:var(--wp--preset--spacing--80)"><!-- wp:group {"layout":{"type":"constrained"}} -->
+<div class="wp-block-group"><!-- wp:minami/breadcrumb {"customTitle":"南フォーラム設立","homeTitle":"みなみまちづくり協議会設立"} /--></div>
 <!-- /wp:group --></div>
 <!-- /wp:group --></div>
 <!-- /wp:group -->
@@ -42,12 +30,12 @@
 <!-- /wp:group -->
 <!-- /wp:post-template -->
 
-<!-- wp:query-pagination {"layout":{"type":"flex","justifyContent":"center"},"className":"min-pagination"} -->
-<div class="wp-block-query-pagination min-pagination" style="display:flex;justify-content:center;gap:8px;margin-top:2em;">
-	<!-- wp:query-pagination-previous {"label":"Prev","className":"min-pagination-prev"} /-->
-	<!-- wp:query-pagination-numbers {"className":"min-pagination-numbers"} /-->
-	<!-- wp:query-pagination-next {"label":"Next","className":"min-pagination-next"} /-->
-</div>
+<!-- wp:query-pagination {"className":"wp-block-query-pagination min-pagination","layout":{"type":"flex","justifyContent":"center"}} -->
+<!-- wp:query-pagination-previous {"label":"Prev","className":"min-pagination-prev"} /-->
+
+<!-- wp:query-pagination-numbers {"className":"min-pagination-numbers"} /-->
+
+<!-- wp:query-pagination-next {"label":"Next","className":"min-pagination-next"} /-->
 <!-- /wp:query-pagination --></div>
 <!-- /wp:query --></div>
 <!-- /wp:group -->
