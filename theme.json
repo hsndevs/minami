@@ -221,10 +221,6 @@
 	"styles": {
 		"blocks": {
 			"core/button": {
-				"color": {
-					"background": "var(--wp--preset--color--dark)",
-					"text": "var(--wp--preset--color--base)"
-				},
 				"typography": {
 					"fontFamily": "var(--wp--preset--font-family--manrope)",
 					"fontSize": "20px",
@@ -246,10 +242,6 @@
 		},
 		"elements": {
 			"button": {
-				"color": {
-					"background": "var(--wp--preset--color--orange)",
-					"text": "var(--wp--preset--color--base)"
-				},
 				"typography": {
 					"fontFamily": "var(--wp--preset--font-family--montserrat)",
 					"fontSize": "18px",
