@@ -23,7 +23,7 @@
 
 <!-- wp:post-title {"level":3,"isLink":true,"style":{"layout":{"selfStretch":"fill","flexSize":null}},"fontSize":"large"} /-->
 
-<!-- wp:post-excerpt {"moreText":"\u003cstrong\u003eRead more...\u003c/strong\u003e","excerptLength":50,"fontSize":"small"} /--></div>
+<!-- wp:post-excerpt {"moreText":"\u003cstrong\u003eRead more...\u003c/strong\u003e","excerptLength":10,"fontSize":"small"} /--></div>
 <!-- /wp:group --></div>
 <!-- /wp:group -->
 <!-- /wp:post-template --></div>

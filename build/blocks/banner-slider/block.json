@@ -24,7 +24,11 @@
     },
     "sliderHeight": {
       "type": "number",
-      "default": 500
+      "default": 700
+    },
+    "themeImageUrl": {
+      "type": "string",
+      "default": "/wp-content/themes/minami/assets/images/"
     }
   }
 }
