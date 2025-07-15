@@ -277,7 +277,15 @@ function minami_get_latest_events_for_category( $cat_id = null, $limit = -1 ) {
 	return get_posts( $args );
 }
 
-// Helper: Get event excerpt (max 10 words)
+
+/**
+ * Truncate the excerpt of a post to a specified word limit.
+ *
+ * @param mixed $post
+ * @param int   $word_limit
+ *
+ * @return [type]
+ */
 function minami_truncate_excerpt( $post, $word_limit = 10 ) {
 	$excerpt = get_the_excerpt( $post );
 	$words = preg_split( '/\s+/', wp_strip_all_tags( $excerpt ), -1, PREG_SPLIT_NO_EMPTY );

@@ -1,18 +1,19 @@
 <?php
 /**
+ * Minami Breadcrumb Block Render.
+ *
+ * @package Minami
  * @see https://github.com/WordPress/gutenberg/blob/trunk/docs/reference-guides/block-api/block-metadata.md#render
  */
-?>
-<?php
-// Minami Breadcrumb Block Render
 
+// Minami Breadcrumb Block Render.
 $custom_title = isset( $attributes['customTitle'] ) && $attributes['customTitle'] ? $attributes['customTitle'] : '';
 
 $home_title = isset( $attributes['homeTitle'] ) && $attributes['homeTitle'] ? $attributes['homeTitle'] : esc_html__( 'Home', 'minami' );
 if ( function_exists( 'minami_breadcrumb_get_items' ) ) {
 	$items = minami_breadcrumb_get_items( $home_title );
 } else {
-	// Fallback: minimal breadcrumb with just Home
+	// Fallback: minimal breadcrumb with just Home.
 	$items = array(
 		array(
 			'url' => home_url( '/' ),
