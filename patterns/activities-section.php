@@ -6,8 +6,8 @@
  * Inserter: no
  */
 ?>
-<!-- wp:group {"style":{"spacing":{"margin":{"top":"0","bottom":"0"},"padding":{"top":"var:preset|spacing|70","bottom":"var:preset|spacing|70","left":"0","right":"0"}},"background":{"backgroundImage":{"url":"<?php echo get_theme_file_uri( '/assets/images/activities-bg.webp' ); ?>","id":213,"source":"file","title":"image"},"backgroundSize":"400px","backgroundAttachment":"scroll","backgroundPosition":"50% 40%","backgroundRepeat":"no-repeat"}},"layout":{"type":"constrained","contentSize":"1352px"}} -->
-<div class="wp-block-group" style="margin-top:0;margin-bottom:0;padding-top:var(--wp--preset--spacing--70);padding-right:0;padding-bottom:var(--wp--preset--spacing--70);padding-left:0"><!-- wp:heading {"textAlign":"center","fontSize":"3x-large"} -->
+<!-- wp:group {"style":{"spacing":{"margin":{"top":"0","bottom":"0"},"padding":{"top":"var:preset|spacing|70","bottom":"var:preset|spacing|70","left":"20px","right":"20px"}},"background":{"backgroundImage":{"url":"<?php echo get_theme_file_uri( '/assets/images/activities-bg.webp' ); ?>","id":213,"source":"file","title":"image"},"backgroundSize":"400px","backgroundAttachment":"scroll","backgroundPosition":"50% 40%","backgroundRepeat":"no-repeat"}},"layout":{"type":"constrained","contentSize":"1352px"}} -->
+<div class="wp-block-group" style="margin-top:0;margin-bottom:0;padding-top:var(--wp--preset--spacing--70);padding-right:20px;padding-bottom:var(--wp--preset--spacing--70);padding-left:20px"><!-- wp:heading {"textAlign":"center","fontSize":"3x-large"} -->
 <h2 class="wp-block-heading has-text-align-center has-3-x-large-font-size">Association Activities</h2>
 <!-- /wp:heading -->
 
