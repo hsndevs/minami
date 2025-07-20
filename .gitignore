@@ -8,6 +8,6 @@ build
 !build/blocks
 *-lock.json
 vendor
-/minami/
+/minami
 !/build/blocks/*
 *x.json

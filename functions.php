@@ -253,7 +253,7 @@ function minami_enqueue_gallery_slider_extension() {
 		3
 	);
 }
-add_action( 'enqueue_block_editor_assets', 'minami_enqueue_gallery_slider_extension' );
+// add_action( 'enqueue_block_editor_assets', 'minami_enqueue_gallery_slider_extension' );
 
 
 

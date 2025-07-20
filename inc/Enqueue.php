@@ -50,12 +50,21 @@ class Enqueue {
 		wp_enqueue_style( 'google-icon-style', esc_url( 'https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined' ), array(), wp_get_theme()->get( 'Version' ), 'all' );
 
 		wp_enqueue_script(
+			'minami-index',
+			get_stylesheet_directory_uri() . '/build/index.js',
+			array(),
+			wp_get_theme()->get( 'Version' ),
+			true
+		);
+
+		wp_enqueue_script(
 			'minami-script',
 			get_stylesheet_directory_uri() . '/build/frontend.js',
 			array(),
 			wp_get_theme()->get( 'Version' ),
 			true
 		);
+
 		wp_localize_script( 'minami-script', 'minami', array( 'assets_url' => MINAMI_ASSETS_URI ) );
 	}
 
