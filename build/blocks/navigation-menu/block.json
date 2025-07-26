@@ -1,0 +1,22 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "minami/nav",
+  "title": "Minami Navigation Menu",
+  "category": "widgets",
+  "icon": "menu",
+  "description": "Display WordPress navigation menus with hierarchical structure.",
+  "supports": {
+    "html": false
+  },
+  "textdomain": "minami",
+  "editorScript": "file:./index.js",
+  "style": "file:./style-index.css",
+  "render": "file:./render.php",
+  "attributes": {
+    "menuId": {
+      "type": "number",
+      "default": 0
+    }
+  }
+}

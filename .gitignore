@@ -4,7 +4,7 @@ node_modules
 *.log
 *.zip
 bundle*.js
-build
+// build
 !build/blocks
 *-lock.json
 vendor
