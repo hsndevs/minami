@@ -114,12 +114,26 @@ class Navigation_Menu {
 
 		$output = '<ul class="' . esc_attr( $class ) . '">';
 
-		foreach ( $menu_tree[ $parent_id ] as $item ) {
+		$menu_items  = $menu_tree[ $parent_id ];
+		$total_items = count( $menu_items );
+
+		foreach ( $menu_items as $index => $item ) {
 			$has_children = isset( $menu_tree[ $item->ID ] );
 
 			$item_class = 'minami-nav-item';
 			if ( $has_children ) {
 				$item_class .= ' has-submenu';
+			}
+
+			// Check if this is the last item in the main menu and has children.
+			$is_last_main_item = 0 === $parent_id && ( $total_items - 1 ) === $index && $has_children;
+			if ( $is_last_main_item ) {
+				$item_class .= ' last-main-item';
+			}
+
+			// Add dropdown class if enabled and has children.
+			if ( ! empty( $item->is_dropdown ) && $has_children && ! $is_submenu ) {
+				$item_class .= ' is-dropdown';
 			}
 
 			$output .= '<li class="' . esc_attr( $item_class ) . '">';
@@ -130,7 +144,8 @@ class Navigation_Menu {
 
 			// Use custom English title meta field if available.
 			if ( ! empty( $item->english_title ) ) {
-				$output .= '<span class="minami-nav-en-title"> - ' . esc_html( $item->english_title ) . '</span>';
+				$separator = $is_submenu ? ' / ' : '';
+				$output   .= '<span class="minami-nav-en-title">' . esc_html( $separator . $item->english_title ) . '</span>';
 			}
 
 			$output .= '</a>';
@@ -158,6 +173,7 @@ class Navigation_Menu {
 	 */
 	public function add_custom_nav_fields( $item_id, $item, $depth, $args ) {
 		$english_title = get_post_meta( $item_id, '_menu_item_english_title', true );
+		$is_dropdown   = get_post_meta( $item_id, '_menu_item_is_dropdown', true );
 		?>
 		<p class="field-english-title description description-wide">
 			<label for="edit-menu-item-english-title-<?php echo esc_attr( $item_id ); ?>">
@@ -167,6 +183,17 @@ class Navigation_Menu {
 					   name="menu-item-english-title[<?php echo esc_attr( $item_id ); ?>]"
 					   value="<?php echo esc_attr( $english_title ); ?>" />
 				<span class="description"><?php esc_html_e( 'Optional English translation/subtitle for this menu item.', 'minami' ); ?></span>
+			</label>
+		</p>
+		<p class="field-dropdown description description-wide">
+			<label for="edit-menu-item-is-dropdown-<?php echo esc_attr( $item_id ); ?>">
+				<input type="checkbox" id="edit-menu-item-is-dropdown-<?php echo esc_attr( $item_id ); ?>"
+					   class="code edit-menu-item-is-dropdown"
+					   name="menu-item-is-dropdown[<?php echo esc_attr( $item_id ); ?>]"
+					   value="1" <?php checked( $is_dropdown, '1' ); ?> />
+				<?php esc_html_e( 'Show as Dropdown', 'minami' ); ?>
+				<br />
+				<span class="description"><?php esc_html_e( 'Enable dropdown behavior for this menu item (only for main menu items with submenus).', 'minami' ); ?></span>
 			</label>
 		</p>
 		<?php
@@ -181,11 +208,20 @@ class Navigation_Menu {
 	 */
 	public function save_custom_nav_fields( $menu_id, $menu_item_db_id, $args ) {
 		// WordPress handles nonce verification for nav menu updates.
+
+		// Save English title.
 		if ( isset( $_POST['menu-item-english-title'][ $menu_item_db_id ] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Missing
 			$english_title = sanitize_text_field( wp_unslash( $_POST['menu-item-english-title'][ $menu_item_db_id ] ) ); // phpcs:ignore WordPress.Security.NonceVerification.Missing
 			update_post_meta( $menu_item_db_id, '_menu_item_english_title', $english_title );
 		} else {
 			delete_post_meta( $menu_item_db_id, '_menu_item_english_title' );
+		}
+
+		// Save dropdown checkbox.
+		if ( isset( $_POST['menu-item-is-dropdown'][ $menu_item_db_id ] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Missing
+			update_post_meta( $menu_item_db_id, '_menu_item_is_dropdown', '1' );
+		} else {
+			delete_post_meta( $menu_item_db_id, '_menu_item_is_dropdown' );
 		}
 	}
 
@@ -197,6 +233,7 @@ class Navigation_Menu {
 	 */
 	public function setup_nav_menu_item( $menu_item ) {
 		$menu_item->english_title = get_post_meta( $menu_item->ID, '_menu_item_english_title', true );
+		$menu_item->is_dropdown   = get_post_meta( $menu_item->ID, '_menu_item_is_dropdown', true );
 		return $menu_item;
 	}
 
@@ -216,6 +253,19 @@ class Navigation_Menu {
 				),
 			)
 		);
+
+		register_rest_field(
+			'nav_menu_item',
+			'is_dropdown',
+			array(
+				'get_callback' => array( $this, 'get_is_dropdown_rest_field' ),
+				'schema'       => array(
+					'description' => __( 'Whether the menu item should show as dropdown.', 'minami' ),
+					'type'        => 'string',
+					'context'     => array( 'view', 'edit' ),
+				),
+			)
+		);
 	}
 
 	/**
@@ -226,5 +276,15 @@ class Navigation_Menu {
 	 */
 	public function get_english_title_rest_field( $object ) {
 		return get_post_meta( $object['id'], '_menu_item_english_title', true );
+	}
+
+	/**
+	 * Get dropdown setting for REST API
+	 *
+	 * @param array $object Menu item object.
+	 * @return string Dropdown setting.
+	 */
+	public function get_is_dropdown_rest_field( $object ) {
+		return get_post_meta( $object['id'], '_menu_item_is_dropdown', true );
 	}
 }
