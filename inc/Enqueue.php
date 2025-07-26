@@ -35,6 +35,8 @@ class Enqueue {
 	public function init() {
 		// Enqueue style for frontend
 		add_action( 'enqueue_block_assets', array( $this, 'enqueue_frontend_style' ) );
+		// Enqueue scripts for block editor
+		add_action( 'enqueue_block_editor_assets', array( $this, 'enqueue_block_editor_assets' ) );
 		// add_action('enqueue_admin_assets', array($this, 'enqueue_admin_style'));
 	}
 
@@ -66,6 +68,21 @@ class Enqueue {
 		);
 
 		wp_localize_script( 'minami-script', 'minami', array( 'assets_url' => MINAMI_ASSETS_URI ) );
+	}
+
+	/**
+	 * Enqueue scripts for block editor
+	 *
+	 * @return void
+	 */
+	public function enqueue_block_editor_assets() {
+		wp_enqueue_script(
+			'minami-blocks',
+			get_stylesheet_directory_uri() . '/build/index.js',
+			array( 'wp-blocks', 'wp-element', 'wp-editor', 'wp-components', 'wp-data' ),
+			wp_get_theme()->get( 'Version' ),
+			true
+		);
 	}
 
 	/**
