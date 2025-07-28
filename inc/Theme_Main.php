@@ -1,4 +1,4 @@
-<?php
+<?php // phpcs:ignore WordPress.Files.FileName.InvalidClassFileName
 
 /**
  * Plugin File: AM API
@@ -12,13 +12,20 @@ namespace Minami;
 
 use Minami\Blocks\Patterns;
 use Minami\Blocks\Navigation_Menu;
+use Minami\Blocks\Variations;
+use Minami\Enqueue;
+use Minami\Meta_Widget;
+use Minami\Post_Types;
+use Minami\Tgmpa;
 
 if ( ! defined( 'ABSPATH' ) ) {
-	exit;
+	exit; // Exit if accessed directly.
 }
 
 /**
- * Plugin_Main Class
+ * Theme_Main Class
+ *
+ * This class is the main entry point for the theme and handles the initialization of various components.
  */
 final class Theme_Main {
 
@@ -47,7 +54,12 @@ final class Theme_Main {
 		add_action( 'after_setup_theme', array( $this, 'minami_setup' ) );
 	}
 
-
+	/**
+	 * Set up theme defaults and register support for various WordPress features.
+	 * This function is hooked into the after_setup_theme hook, which runs before the init hook.
+	 *
+	 * @return void
+	 */
 	public function minami_setup() {
 		// Make the theme available for translation.
 		load_theme_textdomain( 'minami' );
@@ -109,7 +121,7 @@ final class Theme_Main {
 		// Defining plugin constants.
 		$this->define_constants();
 
-		Blocks\Variations::get_instance();
+		Variations::get_instance();
 		Enqueue::get_instance();
 		Tgmpa::get_instance();
 		Meta_Widget::get_instance();

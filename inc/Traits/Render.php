@@ -1,4 +1,4 @@
-<?php
+<?php // phpcs:ignore WordPress.Files.FileName.InvalidClassFileName
 /**
  * Render trait.
  *
@@ -7,6 +7,17 @@
 
 namespace Minami\Traits;
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
+/**
+ * Render Trait
+ *
+ * This trait provides a method to render templates from the views directory.
+ *
+ * @package Minami\Traits
+ */
 trait Render {
 	/**
 	 * Path to the views directory.
@@ -35,4 +46,3 @@ trait Render {
 		}
 	}
 }
-

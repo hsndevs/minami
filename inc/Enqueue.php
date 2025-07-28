@@ -1,6 +1,6 @@
-<?php
-
+<?php // phpcs:ignore WordPress.Files.FileName.InvalidClassFileName
 /**
+ *
  * Plugin File: AM API
  * Description: This plugin will show related random posts under each post.
  *
@@ -15,11 +15,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Plugin_Main Class
+ * Enqueue Class
+ *
+ * This class handles the enqueueing of styles and scripts for the theme.
  */
 class Enqueue {
 
-	use Traits\Singleton;
+	use Traits\Singleton; // Use the Singleton trait to ensure only one instance of this class exists.
 	use Traits\PluginData; // Use the Singleton and PluginData trait.
 
 	/**
@@ -32,12 +34,19 @@ class Enqueue {
 		$this->init();
 	}
 
+	/**
+	 * Initialize the class by registering hooks.
+	 *
+	 * This method sets up the necessary hooks for enqueueing styles and scripts.
+	 *
+	 * @return void
+	 */
 	public function init() {
-		// Enqueue style for frontend
+		// Enqueue style for frontend.
 		add_action( 'enqueue_block_assets', array( $this, 'enqueue_frontend_style' ) );
-		// Enqueue scripts for block editor
+		// Enqueue scripts for block editor.
 		add_action( 'enqueue_block_editor_assets', array( $this, 'enqueue_block_editor_assets' ) );
-		// add_action('enqueue_admin_assets', array($this, 'enqueue_admin_style'));
+		// add_action('enqueue_admin_assets', array($this, 'enqueue_admin_style')); .
 	}
 
 	/**
@@ -47,7 +56,7 @@ class Enqueue {
 	 */
 	public function enqueue_frontend_style() {
 		wp_enqueue_style( 'frontend-style', get_stylesheet_directory_uri() . '/build/frontend.css', array(), wp_get_theme()->get( 'Version' ), 'all' );
-		// enqueue for both frontend and backend
+		// enqueue for both frontend and backend.
 
 		wp_enqueue_style( 'google-icon-style', esc_url( 'https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined' ), array(), wp_get_theme()->get( 'Version' ), 'all' );
 

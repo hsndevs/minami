@@ -1,4 +1,4 @@
-<?php
+<?php // phpcs:ignore WordPress.Files.FileName.InvalidClassFileName
 /**
  * Traits of the plugin.
  *
@@ -7,6 +7,18 @@
 
 namespace Minami\Traits;
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
+/**
+ * Singleton Trait
+ *
+ * This trait provides a simple implementation of the singleton pattern.
+ * It ensures that only one instance of the class can exist at a time.
+ *
+ * @package Minami\Traits
+ */
 trait Singleton {
 
 	/**
@@ -28,5 +40,4 @@ trait Singleton {
 
 		return self::$instance;
 	}
-
 }

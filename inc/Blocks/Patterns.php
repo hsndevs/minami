@@ -1,4 +1,4 @@
-<?php
+<?php // phpcs:ignore WordPress.Files.FileName.InvalidClassFileName
 
 /**
  * Block Variations
@@ -29,7 +29,11 @@ class Patterns {
 		$this->register_hooks();
 	}
 
-
+	/**
+	 * Register hooks and do other setup tasks.
+	 *
+	 * @return void
+	 */
 	public function register_hooks() {
 		// Register block styles.
 		add_action( 'init', array( $this, 'minami_register_block_patterns' ) );

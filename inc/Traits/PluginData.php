@@ -1,4 +1,4 @@
-<?php
+<?php // phpcs:ignore WordPress.Files.FileName.InvalidClassFileName
 /**
  * Traits of the plugin.
  *
@@ -7,6 +7,18 @@
 
 namespace Minami\Traits;
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
+/**
+ * PluginData Trait
+ *
+ * This trait provides methods to handle plugin data, including localization,
+ * sanitization, time conversion, and retrieving plugin information.
+ *
+ * @package Minami\Traits
+ */
 trait PluginData {
 	/**
 	 * Get the plugin version.
