@@ -47,11 +47,31 @@ if ( empty( $images ) ) {
 
 $unique_id = uniqid( 'swiper-' );
 $slider_height = isset( $attributes['sliderHeight'] ) ? intval( $attributes['sliderHeight'] ) : 500;
+$tablet_height = isset( $attributes['tabletHeight'] ) ? intval( $attributes['tabletHeight'] ) : 400;
+$mobile_height = isset( $attributes['mobileHeight'] ) ? intval( $attributes['mobileHeight'] ) : 300;
 ?>
 
+<style>
+	.banner-slider-<?php echo esc_attr( $unique_id ); ?> .swiper {
+		height: <?php echo esc_attr( $slider_height ); ?>px;
+	}
+
+	@media (max-width: 1024px) {
+		.banner-slider-<?php echo esc_attr( $unique_id ); ?> .swiper {
+			height: <?php echo esc_attr( $tablet_height ); ?>px;
+		}
+	}
+
+	@media (max-width: 768px) {
+		.banner-slider-<?php echo esc_attr( $unique_id ); ?> .swiper {
+			height: <?php echo esc_attr( $mobile_height ); ?>px;
+		}
+	}
+</style>
+
 <div <?php echo esc_attr( get_block_wrapper_attributes() ); ?>>
-	<div class="banner-slider-editor-preview" style="height:<?php echo esc_attr( $slider_height ); ?>px">
-		<div class="swiper" data-swiper-id="<?php echo esc_attr( $unique_id ); ?>" data-slider-height="<?php echo esc_attr( $slider_height ); ?>">
+	<div class="banner-slider-editor-preview banner-slider-<?php echo esc_attr( $unique_id ); ?>">
+		<div class="swiper" data-swiper-id="<?php echo esc_attr( $unique_id ); ?>" data-slider-height="<?php echo esc_attr( $slider_height ); ?>" data-tablet-height="<?php echo esc_attr( $tablet_height ); ?>" data-mobile-height="<?php echo esc_attr( $mobile_height ); ?>">
 			<div class="swiper-wrapper">
 				<?php foreach ( $images as $image ) : ?>
 					<div class="swiper-slide">

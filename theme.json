@@ -15,6 +15,11 @@
 					"slug": "primary"
 				},
 				{
+					"color": "#D2EBDB",
+					"name": "Secondary",
+					"slug": "secondary"
+				},
+				{
 					"color": "#000000a6",
 					"name": "Dark",
 					"slug": "dark"

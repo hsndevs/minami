@@ -26,6 +26,14 @@
       "type": "number",
       "default": 700
     },
+    "tabletHeight": {
+      "type": "number",
+      "default": 400
+    },
+    "mobileHeight": {
+      "type": "number",
+      "default": 300
+    },
     "themeImageUrl": {
       "type": "string",
       "default": "/wp-content/themes/minami/assets/images/"

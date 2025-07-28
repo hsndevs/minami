@@ -132,9 +132,10 @@ class Post_Types {
 					'not_found_in_trash' => __( 'No events found in Trash', 'minami' ),
 				),
 				'public' => true,
+				'has_archive' => true, // Enable archive page.
 				'supports' => array( 'title', 'editor', 'thumbnail', 'excerpt' ),
 				'menu_icon' => 'dashicons-art',
-				// 'rewrite' => array('slug' => 'activities'),
+				'rewrite' => array( 'slug' => 'events' ),
 				'show_in_rest' => true, // Enable Gutenberg editor support.
 			)
 		);

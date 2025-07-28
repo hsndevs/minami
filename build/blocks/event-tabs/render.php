@@ -84,8 +84,50 @@ $tab_list = array_merge(
 						<div class="swiper-button-prev"></div>
 						<div class="swiper-button-next"></div>
 					</div>
+					<?php
+					// Add "More" button for each tab.
+					if ( $tab['id'] ) {
+						// For specific category - link to category archive.
+						$category_link = get_term_link( $tab['id'], 'event_category' );
+						if ( ! is_wp_error( $category_link ) ) {
+							?>
+							<div class="tab-more-button">
+								<a href="<?php echo esc_url( $category_link ); ?>" class="btn btn-more" rel="noopener noreferrer">
+									<?php echo esc_html__( 'More', 'event-tabs' ); ?>
+								</a>
+							</div>
+							<?php
+						}
+					} else {
+						// For "All" tab - link to main events archive.
+						$events_archive_link = get_post_type_archive_link( 'event' );
+
+						// Fallback: if archive link doesn't exist, create a custom events page link.
+						if ( ! $events_archive_link ) {
+							// Try to find a page with slug 'events' or use home page with events query.
+							$events_page = get_page_by_path( 'events' );
+							if ( $events_page ) {
+								$events_archive_link = get_permalink( $events_page );
+							} else {
+								// Fallback to home page with events query parameter.
+								$events_archive_link = home_url( '/?post_type=event' );
+							}
+						}
+
+						if ( $events_archive_link ) {
+							?>
+							<div class="tab-more-button">
+								<a href="<?php echo esc_url( $events_archive_link ); ?>" class="btn btn-more" rel="noopener noreferrer">
+									<?php echo esc_html__( 'More Events', 'event-tabs' ); ?>
+								</a>
+							</div>
+							<?php
+						}
+					}
+					?>
 				</div>
 			<?php endforeach; ?>
+
 		</div>
 	</div>
 </div>

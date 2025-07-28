@@ -102,7 +102,7 @@
 <!-- /wp:group --></div>
 <!-- /wp:group -->
 
-<!-- wp:paragraph {"align":"center","style":{"color":{"background":"#fedfe1"},"elements":{"link":{"color":{"text":"var:preset|color|black"}}},"spacing":{"margin":{"top":"0","bottom":"0","left":"0","right":"0"},"padding":{"top":"var:preset|spacing|20","bottom":"var:preset|spacing|20"}}},"textColor":"black"} -->
-<p class="has-text-align-center has-black-color has-text-color has-background has-link-color" style="background-color:#fedfe1;margin-top:0;margin-right:0;margin-bottom:0;margin-left:0;padding-top:var(--wp--preset--spacing--20);padding-bottom:var(--wp--preset--spacing--20)">2025 (c) All right reserved.MINAMI Machisodate Network</p>
+<!-- wp:paragraph {"align":"center","style":{"color":{"background":"#D2EBDB"},"elements":{"link":{"color":{"text":"var:preset|color|black"}}},"spacing":{"margin":{"top":"0","bottom":"0","left":"0","right":"0"},"padding":{"top":"var:preset|spacing|20","bottom":"var:preset|spacing|20"}}},"textColor":"black"} -->
+<p class="has-text-align-center has-black-color has-text-color has-background has-link-color" style="background-color:#D2EBDB;margin-top:0;margin-right:0;margin-bottom:0;margin-left:0;padding-top:var(--wp--preset--spacing--20);padding-bottom:var(--wp--preset--spacing--20)">2025 (c) All right reserved.MINAMI Machisodate Network</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
