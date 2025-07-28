@@ -89,11 +89,12 @@ $tab_list = array_merge(
 					if ( $tab['id'] ) {
 						// For specific category - link to category archive.
 						$category_link = get_term_link( $tab['id'], 'event_category' );
+						$category_title = get_term( $tab['id'], 'event_category' )->name;
 						if ( ! is_wp_error( $category_link ) ) {
 							?>
 							<div class="tab-more-button">
 								<a href="<?php echo esc_url( $category_link ); ?>" class="btn btn-more" rel="noopener noreferrer">
-									<?php echo esc_html__( 'More', 'event-tabs' ); ?>
+									<?php echo esc_html__( 'More', 'event-tabs' ); ?> <?php echo esc_html( $category_title ); ?>
 								</a>
 							</div>
 							<?php
