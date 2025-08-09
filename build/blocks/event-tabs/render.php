@@ -33,24 +33,24 @@ $tab_list = array_merge(
 	)
 );
 
-// Output markup
+// Output markup.
 ?>
 <div <?php echo get_block_wrapper_attributes(); ?>>
 	<div class="event-tabs">
 		<ul class="tabs">
-			<?php foreach ( $tab_list as $idx => $tab ) : ?>
-				<li class="tab<?php echo $idx === 0 ? ' active' : ''; ?>" data-tab-index="<?php echo esc_attr( $idx ); ?>">
-					<?php echo esc_html( $tab['name'] ); ?>
+			<?php foreach ( $tab_list as $idx => $event_tab ) : ?>
+				<li class="tab<?php echo 0 === $idx ? ' active' : ''; ?>" data-tab-index="<?php echo esc_attr( $idx ); ?>">
+					<?php echo esc_html( $event_tab['name'] ); ?>
 				</li>
 			<?php endforeach; ?>
 		</ul>
 		<div class="tab-content-wrap">
-			<?php foreach ( $tab_list as $idx => $tab ) : ?>
+			<?php foreach ( $tab_list as $idx => $event_tab ) : ?>
 				<div class="tab-content" style="<?php echo $idx === 0 ? '' : 'display:none;'; ?>">
 					<div class="swiper">
 						<div class="swiper-wrapper">
 							<?php
-							$events = minami_get_latest_events_for_category( $tab['id'] );
+							$events = minami_get_latest_events_for_category( $event_tab['id'] );
 							if ( empty( $events ) ) {
 								echo '<div class="swiper-slide"><p>' . esc_html__( 'No events found for this category.', 'event-tabs' ) . '</p></div>';
 							} else {
@@ -86,10 +86,10 @@ $tab_list = array_merge(
 					</div>
 					<?php
 					// Add "More" button for each tab.
-					if ( $tab['id'] ) {
+					if ( $event_tab['id'] ) {
 						// For specific category - link to category archive.
-						$category_link = get_term_link( $tab['id'], 'event_category' );
-						$category_title = get_term( $tab['id'], 'event_category' )->name;
+						$category_link = get_term_link( $event_tab['id'], 'event_category' );
+						$category_title = get_term( $event_tab['id'], 'event_category' )->name;
 						if ( ! is_wp_error( $category_link ) ) {
 							?>
 							<div class="tab-more-button">
