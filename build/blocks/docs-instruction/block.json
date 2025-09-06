@@ -1,0 +1,41 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "create-block/docs-instruction",
+  "version": "0.1.0",
+  "title": "Docs Instruction",
+  "category": "widgets",
+  "icon": "book-alt",
+  "description": "A vertical tab component with search functionality for documentation instructions.",
+  "example": {},
+  "supports": {
+    "html": false
+  },
+  "textdomain": "docs-instruction",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "viewScript": "file:./view.js",
+  "render": "file:./render.php",
+  "attributes": {
+    "tabs": {
+      "type": "array",
+      "default": [
+        {
+          "id": "tab-1",
+          "title": "Getting Started",
+          "content": "Welcome to the documentation. This section covers the basics of getting started."
+        },
+        {
+          "id": "tab-2",
+          "title": "Installation",
+          "content": "Learn how to install and configure the system properly."
+        }
+      ]
+    },
+    "searchPlaceholder": {
+      "type": "string",
+      "default": "Search documentation..."
+    }
+  }
+}

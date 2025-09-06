@@ -1,12 +1,13 @@
 <?php
-
 /**
- * Server-side rendering for Event Tabs block
+ * Server-side rendering for Event Tabs block.
+ *
+ * @package wordpress-theme
  */
 
 $attributes = isset( $attributes ) ? $attributes : array();
 
-// Get event categories (terms)
+// Get event categories (terms).
 $event_categories = get_terms(
 	array(
 		'taxonomy' => 'event_category',
@@ -14,7 +15,7 @@ $event_categories = get_terms(
 	)
 );
 
-// Build tab list: first tab is 'All', rest are categories
+// Build tab list: first tab is 'All', rest are categories.
 $tab_list = array_merge(
 	array(
 		array(
@@ -35,7 +36,7 @@ $tab_list = array_merge(
 
 // Output markup.
 ?>
-<div <?php echo get_block_wrapper_attributes(); ?>>
+<div <?php echo esc_attr( get_block_wrapper_attributes() ); ?>>
 	<div class="event-tabs">
 		<ul class="tabs">
 			<?php foreach ( $tab_list as $idx => $event_tab ) : ?>
@@ -46,7 +47,7 @@ $tab_list = array_merge(
 		</ul>
 		<div class="tab-content-wrap">
 			<?php foreach ( $tab_list as $idx => $event_tab ) : ?>
-				<div class="tab-content" style="<?php echo $idx === 0 ? '' : 'display:none;'; ?>">
+				<div class="tab-content" style="<?php echo 0 === $idx ? '' : 'display:none;'; ?>">
 					<div class="swiper">
 						<div class="swiper-wrapper">
 							<?php
@@ -56,22 +57,22 @@ $tab_list = array_merge(
 							} else {
 								foreach ( $events as $event ) {
 									$thumb_url = minami_get_event_thumb_url( $event->ID );
-									$title = get_the_title( $event );
-									$link = get_permalink( $event );
+									$event_title = get_the_title( $event );
+									$event_link = get_permalink( $event );
 									?>
 									<div class="swiper-slide event-item">
-										<a href="<?php echo esc_url( $link ); ?>" rel="noopener noreferrer" class="event-thumb-link">
+										<a href="<?php echo esc_url( $event_link ); ?>" rel="noopener noreferrer" class="event-thumb-link">
 											<?php if ( $thumb_url ) : ?>
-												<img src="<?php echo esc_url( $thumb_url ); ?>" alt="<?php echo esc_attr( $title ); ?>" class="event-thumb" />
+												<img src="<?php echo esc_url( $thumb_url ); ?>" alt="<?php echo esc_attr( $event_title ); ?>" class="event-thumb" />
 											<?php else : ?>
 												<img src="https://placehold.co/400x300?text=No+Image" alt="No image" class="event-thumb" />
 											<?php endif; ?>
 										</a>
 										<h4>
-											<a href="<?php echo esc_url( $link ); ?>" rel="noopener noreferrer"><?php echo esc_html( $title ); ?></a>
+											<a href="<?php echo esc_url( $event_link ); ?>" rel="noopener noreferrer"><?php echo esc_html( $event_title ); ?></a>
 										</h4>
 										<div class="event-excerpt">
-											<?php echo minami_truncate_excerpt( $event, 10 ); ?>
+											<?php echo esc_attr( minami_truncate_excerpt( $event, 10 ) ); ?>
 										</div>
 									</div>
 									<?php
