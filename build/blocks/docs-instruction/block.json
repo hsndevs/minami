@@ -36,6 +36,18 @@
     "searchPlaceholder": {
       "type": "string",
       "default": "Search documentation..."
+    },
+    "isPasswordProtected": {
+      "type": "boolean",
+      "default": false
+    },
+    "password": {
+      "type": "string",
+      "default": ""
+    },
+    "passwordPrompt": {
+      "type": "string",
+      "default": "Enter password to access this documentation"
     }
   }
 }

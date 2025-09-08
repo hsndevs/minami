@@ -364,3 +364,60 @@ if ( ! function_exists( 'minami_breadcrumb_get_items' ) ) {
 		return $items;
 	}
 }
+
+/**
+ * Handle AJAX password verification for docs-instruction block
+ */
+function minami_verify_docs_password() {
+	// Verify nonce for security.
+	if ( ! check_ajax_referer( 'docs_password_nonce', 'nonce', false ) ) {
+		wp_send_json_error( array( 'message' => __( 'Security check failed.', 'docs-instruction' ) ) );
+	}
+
+	$submitted_password = sanitize_text_field( wp_unslash( $_POST['password'] ?? '' ) );
+	$session_key = sanitize_text_field( wp_unslash( $_POST['session_key'] ?? '' ) );
+	$block_id = sanitize_text_field( wp_unslash( $_POST['block_id'] ?? '' ) );
+	$post_id = intval( $_POST['post_id'] ?? 0 );
+
+	if ( empty( $submitted_password ) || empty( $session_key ) || empty( $post_id ) ) {
+		wp_send_json_error( array( 'message' => __( 'Missing required fields.', 'docs-instruction' ) ) );
+	}
+
+	// Get the post content to find the docs-instruction block and its password.
+	$post = get_post( $post_id );
+	if ( ! $post ) {
+		wp_send_json_error( array( 'message' => __( 'Post not found.', 'docs-instruction' ) ) );
+	}
+
+	// Parse the post content to find the docs-instruction block.
+	$blocks = parse_blocks( $post->post_content );
+	$correct_password = '';
+
+	foreach ( $blocks as $block ) {
+		if ( 'create-block/docs-instruction' === $block['blockName'] &&
+			isset( $block['attrs']['isPasswordProtected'] ) &&
+			$block['attrs']['isPasswordProtected'] &&
+			! empty( $block['attrs']['password'] ) ) {
+			$correct_password = $block['attrs']['password'];
+			break;
+		}
+	}
+
+	if ( empty( $correct_password ) ) {
+		wp_send_json_error( array( 'message' => __( 'No password configured for this block.', 'docs-instruction' ) ) );
+	}
+
+	if ( $submitted_password === $correct_password ) {
+		// Set transient for 1 hour (3600 seconds).
+		$remote_addr = isset( $_SERVER['REMOTE_ADDR'] ) ? sanitize_text_field( wp_unslash( $_SERVER['REMOTE_ADDR'] ) ) : '';
+		$transient_key = $session_key . '_' . $remote_addr;
+		set_transient( $transient_key, 'authenticated', HOUR_IN_SECONDS );
+
+		wp_send_json_success( array( 'message' => __( 'Access granted.', 'docs-instruction' ) ) );
+	} else {
+		wp_send_json_error( array( 'message' => __( 'Incorrect password.', 'docs-instruction' ) ) );
+	}
+}
+
+add_action( 'wp_ajax_verify_docs_password', 'minami_verify_docs_password' );
+add_action( 'wp_ajax_nopriv_verify_docs_password', 'minami_verify_docs_password' );
