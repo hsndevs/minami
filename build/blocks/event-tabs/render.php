@@ -36,7 +36,7 @@ $tab_list = array_merge(
 
 // Output markup.
 ?>
-<div <?php echo esc_attr( get_block_wrapper_attributes() ); ?>>
+<div <?php echo wp_kses_data( get_block_wrapper_attributes() ); ?>>
 	<div class="event-tabs">
 		<ul class="tabs">
 			<?php foreach ( $tab_list as $idx => $event_tab ) : ?>
