@@ -17,11 +17,15 @@ if ( empty( $docs_tabs ) ) {
 			'id' => 'tab-1',
 			'title' => __( 'Getting Started', 'docs-instruction' ),
 			'content' => __( 'Welcome to the documentation. This section covers the basics of getting started.', 'docs-instruction' ),
+			'youtubeUrl' => '',
+			'description' => __( 'A comprehensive guide to help you get started with the platform.', 'docs-instruction' ),
 		),
 		array(
 			'id' => 'tab-2',
 			'title' => __( 'Installation', 'docs-instruction' ),
 			'content' => __( 'Learn how to install and configure the system properly.', 'docs-instruction' ),
+			'youtubeUrl' => '',
+			'description' => __( 'Step-by-step installation instructions and configuration setup.', 'docs-instruction' ),
 		),
 	);
 }
@@ -93,6 +97,12 @@ if ( $is_password_protected && ! empty( $password ) ) {
 
 			<div class="docs-content-area">
 				<?php foreach ( $docs_tabs as $index => $docs_tab ) : ?>
+					<?php
+					$youtube_url = isset( $docs_tab['youtubeUrl'] ) ? $docs_tab['youtubeUrl'] : '';
+					$description = isset( $docs_tab['description'] ) ? $docs_tab['description'] : '';
+					$video_id = minami_get_youtube_video_id( $youtube_url );
+					$embed_url = minami_get_youtube_embed_url( $video_id );
+					?>
 					<div
 						class="docs-content<?php echo 0 === $index ? ' active' : ''; ?>"
 						data-content-id="<?php echo esc_attr( $docs_tab['id'] ); ?>"
@@ -100,9 +110,37 @@ if ( $is_password_protected && ! empty( $password ) ) {
 						<h3 class="docs-content-title">
 							<?php echo wp_kses_post( $docs_tab['title'] ); ?>
 						</h3>
-						<div class="docs-content-text">
-							<?php echo wp_kses_post( $docs_tab['content'] ); ?>
-						</div>
+
+						<?php if ( $embed_url ) : ?>
+							<div class="docs-youtube-section">
+								<div class="docs-youtube-iframe-container">
+									<iframe
+										src="<?php echo esc_url( $embed_url ); ?>"
+										title="<?php echo esc_attr( $docs_tab['title'] ); ?>"
+										frameborder="0"
+										allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+										allowfullscreen
+										class="docs-youtube-iframe"
+									></iframe>
+								</div>
+							</div>
+						<?php endif; ?>
+
+						<?php if ( ! empty( $description ) ) : ?>
+							<div class="docs-description-section">
+								<div class="docs-description-text">
+									<?php echo wp_kses_post( $description ); ?>
+								</div>
+							</div>
+						<?php endif; ?>
+
+						<?php if ( ! empty( $docs_tab['content'] ) ) : ?>
+							<div class="docs-additional-content">
+								<div class="docs-content-text">
+									<?php echo wp_kses_post( $docs_tab['content'] ); ?>
+								</div>
+							</div>
+						<?php endif; ?>
 					</div>
 				<?php endforeach; ?>
 			</div>

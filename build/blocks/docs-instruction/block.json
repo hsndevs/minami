@@ -24,12 +24,16 @@
         {
           "id": "tab-1",
           "title": "Getting Started",
-          "content": "Welcome to the documentation. This section covers the basics of getting started."
+          "content": "Welcome to the documentation. This section covers the basics of getting started.",
+          "youtubeUrl": "",
+          "description": "A comprehensive guide to help you get started with the platform."
         },
         {
           "id": "tab-2",
           "title": "Installation",
-          "content": "Learn how to install and configure the system properly."
+          "content": "Learn how to install and configure the system properly.",
+          "youtubeUrl": "",
+          "description": "Step-by-step installation instructions and configuration setup."
         }
       ]
     },

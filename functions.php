@@ -421,3 +421,39 @@ function minami_verify_docs_password() {
 
 add_action( 'wp_ajax_verify_docs_password', 'minami_verify_docs_password' );
 add_action( 'wp_ajax_nopriv_verify_docs_password', 'minami_verify_docs_password' );
+
+/**
+ * Extract YouTube video ID from various URL formats
+ *
+ * @param string $url YouTube URL.
+ * @return string|null Video ID or null if not found.
+ */
+function minami_get_youtube_video_id( $url ) {
+	if ( empty( $url ) ) {
+		return null;
+	}
+
+	$patterns = array(
+		'/(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/)([^&\n?#]+)/',
+		'/youtube\.com\/v\/([^&\n?#]+)/',
+		'/youtube\.com\/watch\?.*v=([^&\n?#]+)/',
+	);
+
+	foreach ( $patterns as $pattern ) {
+		if ( preg_match( $pattern, $url, $matches ) ) {
+			return $matches[1];
+		}
+	}
+
+	return null;
+}
+
+/**
+ * Generate YouTube embed URL from video ID
+ *
+ * @param string $video_id YouTube video ID.
+ * @return string|null Embed URL or null if no video ID.
+ */
+function minami_get_youtube_embed_url( $video_id ) {
+	return ! empty( $video_id ) ? "https://www.youtube.com/embed/{$video_id}" : null;
+}
