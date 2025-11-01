@@ -78,12 +78,14 @@ function minami_post_thumbnail( $post = null ) {
  * @param mixed $data Data to print.
  * @param bool  $die Whether to die after printing.
  */
-function pr( $data, $die = false ) {
-	echo '<pre>';
-	print_r( $data );
-	echo '</pre>';
-	if ( $die ) {
-		die();
+if ( ! function_exists( 'pr' ) ) {
+	function pr( $data, $die = false ) {
+		echo '<pre>';
+		print_r( $data );
+		echo '</pre>';
+		if ( $die ) {
+			die();
+		}
 	}
 }
 
